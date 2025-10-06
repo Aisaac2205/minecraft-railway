@@ -17,8 +17,8 @@ RUN apt update && apt install -y wget unzip && \
 
 # Instala plugins de Geyser y Floodgate
 RUN mkdir -p plugins && \
-    wget -O plugins/Geyser-Spigot.jar https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/spigot/target/Geyser-Spigot.jar && \
-    wget -O plugins/Floodgate-Spigot.jar https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/target/Floodgate-Spigot.jar
+    wget -O plugins/Geyser-Spigot.jar https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot && \
+    wget -O plugins/Floodgate-Spigot.jar https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
 # Expone puertos de Java y Bedrock
 EXPOSE 25565/tcp
