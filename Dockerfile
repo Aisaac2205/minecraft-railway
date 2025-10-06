@@ -20,15 +20,12 @@ RUN mkdir -p plugins && \
     wget -O plugins/Geyser-Spigot.jar https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot && \
     wget -O plugins/Floodgate-Spigot.jar https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
+# Copia configuración de Geyser
+COPY geyser-config.yml /server/plugins/Geyser-Spigot/config.yml
+
 # Expone puertos de Java y Bedrock
 EXPOSE 25565/tcp
 EXPOSE 25565/udp
-
-# Crea configuración de Geyser para usar el mismo puerto
-RUN mkdir -p plugins/Geyser-Spigot/config && \
-    echo "bedrock:" > /tmp/geyser-config.yml && \
-    echo "  port: 25565" >> /tmp/geyser-config.yml && \
-    echo "  address: 0.0.0.0" >> /tmp/geyser-config.yml
 
 # Comando para iniciar
 CMD ["java", "-Xmx3G", "-Xms1G", "-jar", "server.jar", "nogui"]
