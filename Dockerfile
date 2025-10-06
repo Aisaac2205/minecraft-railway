@@ -1,5 +1,5 @@
-# Imagen base con Java 17
-FROM openjdk:17-jdk-slim
+# Imagen base con Java 21 (requerido para Minecraft 1.21.1)
+FROM eclipse-temurin:21-jdk-jammy
 
 # Variables del entorno
 ENV EULA=TRUE
